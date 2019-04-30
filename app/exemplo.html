@@ -1,0 +1,120 @@
+<!-- @@include('components/page-components/page-before.html') -->
+
+  <body class="conta-globo-mais page-bemvindo">
+    
+    <!-- @@include('components/header-cpt/header-cpt.html') -->
+
+    <section class="page-banner">
+      <figure>
+        <img
+          src="images/v2/page-banner/boasvindasglobomais.jpg"
+          alt="Uma imagem impressionante"
+        />
+      </figure>
+    </section>
+
+    <main class="conteudo conteudo-conta">
+      <div class="grid-wrap">
+        <section class="page-title">
+          <h1 class="__title">Bem-vindo!</h1>
+
+          <p class="__subtitle">
+            Agora você faz parte da comunidade Globo+. <br />Acesse o app e
+            tenha o melhor conteúdo para todos os momentos do seu dia.
+          </p>
+        </section>
+
+        <section class="voucher-box">
+          <p class="voucher-box__text">
+            Possui algum voucher ou código promocional?
+          </p>
+
+          <form method="post" action="#">
+            <fieldset class="input-group">
+              <label class="__label"
+                >Insira aqui seu código e resgate sua assinatura Globo+.</label
+              >
+              <div>
+                <input
+                  type="text"
+                  data-csrf-token
+                  name="codVoucher"
+                  class="input-text"
+                />
+                <input
+                  id="btn-profile-resgatar-gift-card"
+                  class="btn-enviar"
+                  type="submit"
+                  value="resgatar"
+                  name=""
+                />
+              </div>
+            </fieldset>
+          </form>
+        </section>
+
+        <section class="how-use">
+          <h2 class="page-subtitle">Para começar a usar o app Globo Mais:</h2>
+
+          <div class="start-use">
+            <div class="start-use__col">
+              <div class="start-use__col-head start-use__row">1</div>
+              <div class="start-use__col-text start-use__row">
+                Faça o download do aplicativo em uma das lojas através do seu
+                Smartphone ou Tablet
+              </div>
+              <div class="start-use__col-image start-use__row">
+                <figure>
+                  <img
+                    src="images/v2/page-bem-vindo/img-mob-tab.png"
+                    alt="Uma imagem impressionante"
+                  />
+                </figure>
+              </div>
+              <div class="start-use__col-button">
+                <a
+                  class="btn-googleplay"
+                  href="https://play.google.com/store/apps/details?id=br.com.globomagazines"
+                  target="_blank"
+                ></a>
+                <a
+                  class="btn-appstore"
+                  href="https://itunes.apple.com/br/app/globo+-conteudo-que-faz-diferenca/id943871531?mt=8"
+                  target="_blank"
+                ></a>
+              </div>
+            </div>
+
+            <div class="start-use__col">
+              <div class="start-use__col-head start-use__row">2</div>
+              <div class="start-use__col-text start-use__row">
+                Acesse o aplicativo e selecione<br /> o ícone <span class="--red --ico-minhaconta">Minha Conta</span> na página
+                inicial. Em seguida, toque em <span class="--red">Entrar</span> e digite seu email e senha
+              </div>
+              <div class="start-use__col-image">
+                <figure>
+                  <img
+                    src="images/v2/page-bem-vindo/img-app.jpg"
+                    alt="Uma imagem impressionante"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="access-myaccount">
+          <div class="access-myaccount__text">Gerenciar sua conta é simples e rápido. <br />Você pode atualizar seus dados em Minha Conta.</div>
+
+          <a class="btn-enviar btn-enviar--large">Minha conta</a>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- @@include('components/footer-cpt/footer-cpt.html') -->
+
+    <!-- @@include('components/page-components/footer-scripts.html') -->
+
+  </body>
+</html>
