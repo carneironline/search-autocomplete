@@ -10,31 +10,49 @@ export default class SearchAutocomplete {
 
     elements.forEach(elRoot => {
       this.setTitle(elRoot);
-      this.setEventKey(elRoot);
+
+      if (!this.setEventSubmit(elRoot)) this.setEventKey(elRoot);
     });
   }
 
-  setTitle(elRoot) {
-    const el = elRoot.getElementsByClassName(`${this.nameCpt}-title`)[0];
-    const title = el.dataset.saTitle;
+  setEventSubmit(elRoot) {
+    const elButton = elRoot.getElementsByClassName(`${this.nameCpt}-button`)[0];
+    const elInput = elRoot.getElementsByClassName(`${this.nameCpt}-input`)[0];
+    const type = elRoot.dataset.saType;
 
-    if (title) el.innerHTML = title;
+    if (!elButton) return false;
+
+    this.constructList(elRoot, elButton, elInput, 'click', type, 'label');
+
+    return true;
+  }
+
+  setTitle(elRoot) {
+    const elTitle = elRoot.getElementsByClassName(`${this.nameCpt}-title`)[0];
+    const title = elTitle.dataset.saTitle;
+
+    if (title) elTitle.innerHTML = title;
   }
 
   setEventKey(elRoot) {
     const elInput = elRoot.getElementsByClassName(`${this.nameCpt}-input`)[0];
     const type = elRoot.dataset.saType;
+
+    this.constructList(elRoot, elInput, elInput, 'keyup', type, 'label');
+  }
+
+  constructList(elRoot, listerner, target, evtlisterner, type, propTarget) {
     let wait = false;
 
-    elInput.addEventListener(
-      'keyup',
+    listerner.addEventListener(
+      evtlisterner,
       function(evt) {
         if (wait) return;
 
         wait = true;
 
         setTimeout(() => {
-          const arrayList = this.checkValueOnArray(evt.target, type, 'label');
+          const arrayList = this.checkValueOnArray(target, type, propTarget);
 
           this.addItemsList(elRoot, arrayList);
 
@@ -78,9 +96,9 @@ export default class SearchAutocomplete {
   }
 
   itemList(obj) {
-    const item = `<li class="${this.nameCpt}-list-item" data-sa-pk="${obj.pk}">${
-      obj.label
-    }</li>`;
+    const item = `<li class="${this.nameCpt}-list-item" data-sa-pk="${
+      obj.pk
+    }">${obj.label}</li>`;
     return item;
   }
 
