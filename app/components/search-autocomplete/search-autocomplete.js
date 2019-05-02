@@ -10,7 +10,6 @@ export default class SearchAutocomplete {
 
     elements.forEach(elRoot => {
       this.createTemplate(elRoot);
-      this.setTitle(elRoot);
 
       if (!this.setEventSubmit(elRoot)) this.setEventKey(elRoot);
     });
@@ -31,13 +30,6 @@ export default class SearchAutocomplete {
     this.constructList(elRoot, elButton, elInput, 'click', type, 'label');
 
     return true;
-  }
-
-  setTitle(elRoot) {
-    const elTitle = elRoot.getElementsByClassName(`${this.nameCpt}-title`)[0];
-    const title = elTitle.dataset.saTitle;
-
-    if (title) elTitle.innerHTML = title;
   }
 
   setEventKey(elRoot) {
@@ -114,7 +106,6 @@ export default class SearchAutocomplete {
 
   template() {
     return `
-    <div class="search-autocomplete-title"></div>
     <div class="search-field">
         <input type="text" class="search-autocomplete-input" placeholder="Buscar por marca"/>
         <button class="btn-search search-autocomplete-button" type="submit">Buscar</button>
