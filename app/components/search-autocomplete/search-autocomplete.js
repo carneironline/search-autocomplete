@@ -9,6 +9,7 @@ export default class SearchAutocomplete {
     const elements = document.querySelectorAll(`.${this.nameCpt}`);
 
     elements.forEach(elRoot => {
+      this.createTemplate(elRoot);
       this.setTitle(elRoot);
 
       if (!this.setEventSubmit(elRoot)) this.setEventKey(elRoot);
@@ -105,6 +106,21 @@ export default class SearchAutocomplete {
       obj.pk
     }">${obj.label}</li>`;
     return item;
+  }
+
+  createTemplate(elRoot) {
+    elRoot.innerHTML = this.template();
+  }
+
+  template() {
+    return `
+    <div class="search-autocomplete-title"></div>
+    <div class="search-field">
+        <input type="text" class="search-autocomplete-input" placeholder="Buscar por marca"/>
+        <button class="btn-search search-autocomplete-button" type="submit">Buscar</button>
+        <ul class="search-autocomplete-list"></ul>
+    </div>
+    `
   }
 
   mockData1() {
