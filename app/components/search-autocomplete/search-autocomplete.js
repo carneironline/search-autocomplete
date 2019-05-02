@@ -22,6 +22,11 @@ export default class SearchAutocomplete {
 
     if (!elButton) return false;
 
+    elInput.addEventListener('keyup', function(evt) {
+      if(evt.keyCode === 13)
+        elButton.click()
+    })
+
     this.constructList(elRoot, elButton, elInput, 'click', type, 'label');
 
     return true;
